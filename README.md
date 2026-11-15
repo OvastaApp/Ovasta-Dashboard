@@ -34,7 +34,7 @@ Complaint types for new tickets are assigned automatically from keywords in the 
 
 ## How it updates
 
-The data refreshes **every day at 07:00 Cairo time** from an automated job. There is **no direct database access**.
+The data refreshes **every day at 00:01 (12:01 AM) Cairo time** from an automated job. There is **no direct database access**.
 
 1. The job calls an **internal read-only metrics API** (GET only) for monthly totals, the last working day, complaints and ratings.
 2. The results are combined into `data.json`. No customer names, phone numbers or ticket text are included.
