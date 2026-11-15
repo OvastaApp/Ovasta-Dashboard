@@ -18,7 +18,7 @@ Daily business metrics for **Ovasta**, the grocery delivery service, shown on a 
 | **Low ratings** | Rating distribution and the main reasons behind ratings of 3★ or lower |
 | **Monthly table** | Full month-by-district breakdown |
 
-The **Month** and **District** filters at the top drive every section. Data starts from **February 2026**, and all amounts are in **EGP**.
+The **Month** and **District** filters at the top drive every section. Data starts from **February 2026**, and all amounts are in **EGP**. The page shows a **Last updated** time at the top, taken from this repo's `data.json`.
 
 ## Metric definitions
 
@@ -34,9 +34,9 @@ Complaint types for new tickets are assigned automatically from keywords in the 
 
 ## How it updates
 
-The data refreshes **every day at 07:00 Cairo time**:
+The data refreshes **every day at 07:00 Cairo time** from an automated job. There is **no direct database access**.
 
-1. A scheduled job runs a **read-only** query against the production database. It only reads, never writes, and uses short timeouts.
+1. The job calls an **internal read-only metrics API** (GET only) for monthly totals, the last working day, complaints and ratings.
 2. The results are combined into `data.json`. No customer names, phone numbers or ticket text are included.
 3. The new `data.json` (with its *Last updated* time, shown at the top of the page) is committed and pushed here, and GitHub Pages publishes it automatically.
 
