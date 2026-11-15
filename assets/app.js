@@ -294,7 +294,7 @@
     var up = document.getElementById("updated");
     up.textContent = "Last updated: " + wd + " " + dlabel(g.slice(0, 10)) + ", " + g.slice(11, 16) + " Cairo time (" + ago + ")";
     if (mins > 36 * 60) { up.className = "updated stale"; up.textContent += " · daily update may have been missed"; }
-    document.getElementById("asof").textContent = dlabel(MONTHS[0] + "-01").replace(/^1 /, "") + " onward. Amounts in EGP. Updates daily at 07:00 Cairo time.";
+    document.getElementById("asof").textContent = dlabel(MONTHS[0] + "-01").replace(/^1 /, "") + " onward. Amounts in EGP. Updates daily at 12:01 AM Cairo time.";
     var fm = document.getElementById("f-month"), fd = document.getElementById("f-dist");
     fm.innerHTML = MONTHS.slice().reverse().map(function (m) { return '<option value="' + m + '"' + (m === state.month ? " selected" : "") + ">" + esc(mlabel(m)) + "</option>"; }).join("");
     fd.innerHTML = '<option value="0">All districts</option>' + D.districts.map(function (d) { return '<option value="' + esc(d.id) + '">' + esc(d.en) + " · \u2068" + esc(d.ar) + "\u2069</option>"; }).join("");
