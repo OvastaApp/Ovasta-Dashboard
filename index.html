@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Ovasta startup metrics</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <h1>Ovasta startup metrics</h1>
+    <p class="sub" id="asof">Loading…</p>
+  </div>
+</header>
+<div class="filters" role="group" aria-label="Filters">
+  <div class="wrap filters-in">
+    <label>Month <select id="f-month"></select></label>
+    <label>District <select id="f-dist"></select></label>
+  </div>
+</div>
+<main class="wrap" id="app">
+  <nav class="toc" aria-label="Sections">
+    <a href="#lastday">Last working day</a><a href="#kpis">Key metrics</a><a href="#trend">Monthly trend</a>
+    <a href="#districts">District comparison</a><a href="#complaints">Complaints</a><a href="#ratings">Low ratings</a><a href="#table">Monthly table</a>
+  </nav>
+  <section id="lastday"></section>
+  <section id="kpis"></section>
+  <section id="trend"></section>
+  <section id="districts"></section>
+  <section id="complaints"></section>
+  <section id="ratings"></section>
+  <section id="table"></section>
+  <noscript><p class="callout">This dashboard needs JavaScript.</p></noscript>
+</main>
+<footer class="wrap foot">GMV = value of all placed orders. NMV = value of delivered orders after discounts and price adjustments. Active customers = customers with a delivered order. Amounts in EGP, times in Cairo time (UTC+2).</footer>
+<script src="assets/app.js"></script>
+</body>
+</html>
