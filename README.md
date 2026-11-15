@@ -2,6 +2,8 @@
 
 Daily business metrics for **Ovasta**, the grocery delivery service, shown on a lightweight static dashboard hosted on GitHub Pages.
 
+🔗 **Live dashboard:** [ovastaapp.github.io/Ovasta-Dashboard](https://ovastaapp.github.io/Ovasta-Dashboard/)
+
 > ⚠️ **Internal use only.** This dashboard contains business performance data. Please don't share the link outside the Ovasta team.
 
 ## What's inside
@@ -36,7 +38,7 @@ The data refreshes **every day at 07:00 Cairo time**:
 
 1. A scheduled job runs a **read-only** query against the production database. It only reads, never writes, and uses short timeouts.
 2. The results are combined into `data.json`. No customer names, phone numbers or ticket text are included.
-3. The new `data.json` is committed and pushed here, and GitHub Pages publishes it automatically.
+3. The new `data.json` (with its *Last updated* time, shown at the top of the page) is committed and pushed here, and GitHub Pages publishes it automatically.
 
 If any step fails, nothing is pushed and the previous day's dashboard stays online.
 

@@ -287,8 +287,14 @@
     MONTHS = Object.keys(D.M).filter(function (m) { return m >= D.first_month; }).sort();
     var full = MONTHS.filter(function (m) { return !isPartial(m); });
     state.month = full.length ? full[full.length - 1] : MONTHS[MONTHS.length - 1];
-    var g = D.generated; document.getElementById("asof").textContent = "Data as of " + dlabel(g.slice(0, 10)) + ", " + g.slice(11, 16) + " Cairo time (UTC+2). " +
-      dlabel(MONTHS[0] + "-01").replace(/^1 /, "") + " onward. Amounts in EGP.";
+    var g = D.generated;
+    var gd = new Date(g + ":00+02:00"), mins = Math.max(0, Math.round((Date.now() - gd.getTime()) / 60000));
+    var ago = mins < 60 ? mins + " min ago" : mins < 1440 ? Math.round(mins / 60) + " h ago" : Math.round(mins / 1440) + " days ago";
+    var wd = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"][new Date(g.slice(0, 10) + "T12:00:00Z").getUTCDay()];
+    var up = document.getElementById("updated");
+    up.textContent = "Last updated: " + wd + " " + dlabel(g.slice(0, 10)) + ", " + g.slice(11, 16) + " Cairo time (" + ago + ")";
+    if (mins > 36 * 60) { up.className = "updated stale"; up.textContent += " · daily update may have been missed"; }
+    document.getElementById("asof").textContent = dlabel(MONTHS[0] + "-01").replace(/^1 /, "") + " onward. Amounts in EGP. Updates daily at 07:00 Cairo time.";
     var fm = document.getElementById("f-month"), fd = document.getElementById("f-dist");
     fm.innerHTML = MONTHS.slice().reverse().map(function (m) { return '<option value="' + m + '"' + (m === state.month ? " selected" : "") + ">" + esc(mlabel(m)) + "</option>"; }).join("");
     fd.innerHTML = '<option value="0">All districts</option>' + D.districts.map(function (d) { return '<option value="' + esc(d.id) + '">' + esc(d.en) + " · \u2068" + esc(d.ar) + "\u2069</option>"; }).join("");

@@ -39,3 +39,6 @@ bdi{unicode-bidi:isolate}.ar{font-family:"Noto Sans Arabic","Segoe UI Arabic",Ta
 .pill{display:inline-block;font-size:12px;padding:1px 8px;border-radius:99px;background:#f1f0ee;color:var(--muted);margin-left:6px}
 details>summary{cursor:pointer;font-weight:650;font-size:19px;list-style:none}details>summary::before{content:"▸ ";color:var(--muted)}details[open]>summary::before{content:"▾ "}
 .foot{color:var(--muted);font-size:12.5px;padding-bottom:40px}
+
+.updated{display:inline-block;margin:6px 0 2px;padding:3px 10px;border-radius:999px;font-size:13px;font-weight:600;background:#e8f5ee;color:#1f7a4d}
+.updated.stale{background:#fff4e0;color:#9a5b00}
