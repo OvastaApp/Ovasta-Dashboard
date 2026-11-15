@@ -3,6 +3,7 @@
 !.gitignore
 !.nojekyll
 !index.html
+!README.md
 !data.json
 !assets/
 !assets/style.css
