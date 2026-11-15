@@ -17,7 +17,6 @@ tickets*
 *ticket*.json
 *.txt
 *.pw
-ovpw*
 .env
 *.env
 *.py
