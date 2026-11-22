@@ -34,13 +34,15 @@ Complaint types for new tickets are assigned automatically from keywords in the 
 
 ## How it updates
 
-The data refreshes **every day at 00:01 (12:01 AM) Cairo time** from an automated job. There is **no direct database access**.
+The data refreshes **every day at 00:01 (12:01 AM) Cairo time** from the **Daily dashboard refresh** GitHub Action in this repo (`workflow_dispatch` can also run it on demand). There is **no direct database access**.
 
-1. The job calls an **internal read-only metrics API** (GET only) for monthly totals, the last working day, complaints and ratings.
+1. The Action calls an **internal read-only metrics API** (GET only) for monthly totals, the last working day, complaints and ratings.
 2. The results are combined into `data.json`. No customer names, phone numbers or ticket text are included.
 3. The new `data.json` (with its *Last updated* time, shown at the top of the page) is committed and pushed here, and GitHub Pages publishes it automatically.
 
 If any step fails, nothing is pushed and the previous day's dashboard stays online.
+
+The API base URL and key are stored as repository Actions secrets (`OVASTA_API_BASE`, `OVASTA_API_KEY`) and are never committed.
 
 ## Files
 

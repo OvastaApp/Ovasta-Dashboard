@@ -1,4 +1,4 @@
-# This folder is the PUBLIC GitHub Pages repo. Allow-list: only the site files get committed.
+# This is the PUBLIC GitHub Pages repo. Allow-list only: site files plus the refresh workflow/scripts.
 *
 !.gitignore
 !.nojekyll
@@ -8,18 +8,26 @@
 !assets/
 !assets/style.css
 !assets/app.js
+!.github/
+!.github/workflows/
+!.github/workflows/daily-refresh.yml
+!scripts/
+!scripts/api_refresh.py
+!scripts/build_data.py
+!scripts/classifier.py
+!scripts/complaints_classified.json
 
-# Belt and braces: never commit these even if the allow-list above is changed
+# Belt and braces: never commit secrets, raw dumps, or free-text ticket files
 *dump*.json
 bounds_cache.json
-complaints_classified.json
+/complaints_classified.json
 tickets*
 *ticket*.json
 *.txt
 *.pw
 .env
 *.env
-*.py
+/*.py
 *.ps1
 *.log
 logs/
